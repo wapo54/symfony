@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Home{% endblock %}
+
+{% block body %}
+<p>The color of the day is: {{ color|default('red') }}</p>
+<article>
+    <h2>Numeripic, an app with symfony</h2>
+    <p>Quam quidem partem accusationis admiratus sum et moleste tuli potissimum esse Atratino datam. Neque enim decebat neque aetas illa postulabat neque, id quod animadvertere poteratis, pudor patiebatur optimi adulescentis in tali illum oratione versari. Vellem aliquis ex vobis robustioribus hunc male dicendi locum suscepisset; aliquanto liberius et fortius et magis more nostro refutaremus istam male dicendi licentiam. Tecum, Atratine, agam lenius, quod et pudor tuus moderatur orationi meae et meum erga te parentemque tuum beneficium tueri debeo.</p>
+</article>
+
+{# this is a set but we can make it simpler#}
+{#{% set itemList = [1, 2, 58, 8, 7, 654, 24,] %}#}
+{# function #}
+{% set currentDate = date() %}
+
+{{ currentDate|date ('Y-m-d H:i:s') |upper|raw }}
+
+<ul>
+{% for item in itemList %}
+    {% if item is odd %}
+        <li> {{ item }}</li>
+    {% endif %}
+{% endfor %}
+</ul>
+
+{% for i in range (0, 10) %}
+    {% if loop.last %}
+        <br/>
+        {% endif %}
+    {{ i }}
+{% endfor %}
+
+{% endblock %}
