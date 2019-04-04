@@ -1,0 +1,28 @@
+APP:
+    NAME: 'Numeripic'
+
+NAV:
+    HOME:          'Home'
+    TERMS:         'Terms'
+    LOGIN:         'Login'
+    REGISTER:      'Register'
+
+LOGIN:
+    INFO:          'Please Sign In'
+    USERNAME:
+        LABEL:     'Username'
+    PASSWORD:
+        LABEL:     'Password'
+    SUBMIT:        'Sign In'
+
+FORM:
+    USER:
+        TOS:
+            LABEL:        'Accept term of services'
+        EMAIL:
+            LABEL:        'Email'
+        PASSWORD:
+            LABEL2:       'Repeat your Password'
+            LABEL:        'Password'
+            USERNAME:
+                LABEL:    'Username'

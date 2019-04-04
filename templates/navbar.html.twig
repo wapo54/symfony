@@ -4,7 +4,10 @@
     <li {% if app.request.attributes.get('_route') == 'homepage' %}
             active
             {% endif %}>
-        <a href="{{ path('homepage') }}">Home</a>
+        <a href="{{ path('homepage') }}">
+            {{ 'NAV.HOME'|trans }}
+        </a>
+
     </li>
     <li>Portfolio</li>
     <li>About me</li>
@@ -12,12 +15,26 @@
     <li {% if app.request.attributes.get('_route') == 'terms_of_services' %}
     active
             {% endif %}>>
-        <a href="{{ path('terms_of_services') }}">Terms</a>
+        <a href="{{ path('terms_of_services') }}">
+            {{ 'NAV.TERMS'|trans }}
+        </a>
+
     </li>
     <li {% if app.request.attributes.get('_route') == 'app_login' %}
     active
             {% endif %}>>
-        <a href="{{ path('app_login') }}">Login</a>
+        <a href="{{ path('app_login') }}">
+            {{ 'NAV.LOGIN'|trans }}
+        </a>
+
     </li>
+        <li {% if app.request.attributes.get('_route') == 'app_register' %}
+        active
+                {% endif %}>>
+            <a href="{{ path('app_login') }}">
+                {{ 'NAV.REGISTER'|trans }}
+            </a>
+
+        </li>
     </ul>
 </nav>

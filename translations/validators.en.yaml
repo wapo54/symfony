@@ -1,0 +1,4 @@
+FORM:
+  USER:
+    PASSWORD:
+      ERROR:    'Password must match'
