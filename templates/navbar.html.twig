@@ -1,11 +1,23 @@
 
 <nav>
-    <ul ">
-    <li><a href="{{ path('homepage') }}">Home</a></li>
+    <ul>
+    <li {% if app.request.attributes.get('_route') == 'homepage' %}
+            active
+            {% endif %}>
+        <a href="{{ path('homepage') }}">Home</a>
+    </li>
     <li>Portfolio</li>
     <li>About me</li>
     <li>Contact</li>
-    <li><a href="{{ path('terms of services') }}">Terms</a></li>
-    <li><a href="{{ path('app_login') }}">Login</a></li>
+    <li {% if app.request.attributes.get('_route') == 'terms_of_services' %}
+    active
+            {% endif %}>>
+        <a href="{{ path('terms_of_services') }}">Terms</a>
+    </li>
+    <li {% if app.request.attributes.get('_route') == 'app_login' %}
+    active
+            {% endif %}>>
+        <a href="{{ path('app_login') }}">Login</a>
+    </li>
     </ul>
 </nav>

@@ -36,7 +36,7 @@ class defaultController
     }
 
     /**
-     * @Route ("/terms", name="terms of services")
+     * @Route ("/terms", name="terms_of_services")
      * @return Response
      */
     public function termsOfServicesAction()
