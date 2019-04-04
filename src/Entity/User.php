@@ -12,18 +12,21 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  *     })
  * @UniqueEntity(fields={"username"}, message="There is already an account with this username")
+ * @uniqueEntity(fields={"email"}, message="There is no account with this email")
  */
 class User implements UserInterface
 {
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue(strategy="UUID")
+     * @ORM\GeneratedValue(strategy="UUID"
      * @ORM\Column(type="guid")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Length(min="4", max="180")
      */
     private $username;
 
@@ -35,16 +38,26 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     * @Assert\Length(min="8", max="2855")
+     * @Assert\Regex( pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?& ]{8,}$/"
+     * message=" Password must contain minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:"
+     *
+     * )
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Email()
      */
     private $email;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
+     * @Assert\NotBlank()
+     * @Assert\IsTrue()
      */
     private $termAccepted;
 
