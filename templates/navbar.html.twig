@@ -23,14 +23,24 @@
     <li>Portfolio</li>
     <li>About me</li>
     <li>Contact</li>
-    <li {% if app.request.attributes.get('_route') == 'terms_of_services' %}
+    <li> {% if app.request.attributes.get('_route') == 'terms_of_services' %}
     active
-            {% endif %}>>
+            {% endif %}
         <a href="{{ path('terms_of_services') }}">
             {{ 'NAV.TERMS'|trans }}
         </a>
 
     </li>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <li>>
+                {{ 'NAV.LOGGED_AS'|trans({'%name%': app.user.username}) }}
+        </li>
+    <li>>
+        <a href="{{ path('app_logout') }}">
+            {{ 'NAV.LOGOUT'|trans }}
+        </a>
+    </li>
+        {% else %}
     <li {% if app.request.attributes.get('_route') == 'app_login' %}
     active
             {% endif %}>>
@@ -39,16 +49,15 @@
         </a>
 
     </li>
-        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        {% else %}
-        <li {% if app.request.attributes.get('_route') == 'app_register' %}
+    <li {% if app.request.attributes.get('_route') == 'app_register' %}
         active
                 {% endif %}>>
             <a href="{{ path('app_register') }}">
                 {{ 'NAV.REGISTER'|trans }}
             </a>
-
-        </li>
-    </ul>
+     </li>
+        {% endif %}
+     </ul>
 </nav>
+{% endblock %}
 </body>

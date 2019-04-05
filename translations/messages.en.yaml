@@ -6,6 +6,8 @@ NAV:
     TERMS:         'Terms'
     LOGIN:         'Login'
     REGISTER:      'Register'
+    LOGOUT:        'Log Out'
+    LOGGED_AS:        'Loggged as %name%'
 
 LOGIN:
     INFO:          'Please Sign In'
