@@ -1,4 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>{{ 'MAIL.REGISTER.TITLE'|trans }}</title>
+</head>
 
+<body>
 <nav>
     <ul>
     <li {% if app.request.attributes.get('_route') == 'homepage' %}
@@ -28,13 +39,16 @@
         </a>
 
     </li>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        {% else %}
         <li {% if app.request.attributes.get('_route') == 'app_register' %}
         active
                 {% endif %}>>
-            <a href="{{ path('app_login') }}">
+            <a href="{{ path('app_register') }}">
                 {{ 'NAV.REGISTER'|trans }}
             </a>
 
         </li>
     </ul>
 </nav>
+</body>

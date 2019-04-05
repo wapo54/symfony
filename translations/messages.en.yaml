@@ -18,11 +18,32 @@ LOGIN:
 FORM:
     USER:
         TOS:
-            LABEL:        'Accept term of services'
+            LABEL:        'Accept terms of services'
         EMAIL:
             LABEL:        'Email'
         PASSWORD:
             LABEL2:       'Repeat your Password'
             LABEL:        'Password'
-            USERNAME:
-                LABEL:    'Username'
+        USERNAME:
+            LABEL:    'Username'
+        SUBMIT:
+            LABEL:  'Submit'
+
+MAIL:
+    REGISTER:
+        TITLE:            'Activate your account'
+        INFO:             'Hi %name% your account was successfully created on Numeripic, just one more step to activate!'
+        HTML:
+            LINK:
+                INFO:     'Please click'
+                LABEL:    'on this link'
+
+        TXT:
+            LINK:
+                INFO:            'Please, copy/past this link in your browser'
+
+REGISTRATION:
+    ACTIVATION:
+        TITLE:          'Numeripic - activation needed'
+        INFO:           '❤ Your account was created, please check your email account to activate ❤'
+
