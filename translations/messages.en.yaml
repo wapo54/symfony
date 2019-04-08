@@ -7,7 +7,7 @@ NAV:
     LOGIN:         'Login'
     REGISTER:      'Register'
     LOGOUT:        'Log Out'
-    LOGGED_AS:        'Loggged as %name%'
+    LOGGED_AS:     'Loggged as %name%'
 
 LOGIN:
     INFO:          'Please Sign In'
@@ -27,9 +27,9 @@ FORM:
             LABEL2:       'Repeat your Password'
             LABEL:        'Password'
         USERNAME:
-            LABEL:    'Username'
+            LABEL:        'Username'
         SUBMIT:
-            LABEL:  'Submit'
+            LABEL:        'Submit'
 
 MAIL:
     REGISTER:
