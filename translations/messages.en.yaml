@@ -30,6 +30,15 @@ FORM:
             LABEL:        'Username'
         SUBMIT:
             LABEL:        'Submit'
+    PICTURE:
+        TITLE:          'Title'
+            LABEL:
+        DESCRIPTION:
+            LABEL:      'Describe [optional]'
+         TAGS:
+            LABEL:      'Tags'
+        FILE:
+            LABEL:      'Choose a picture'
 
 MAIL:
     REGISTER:
@@ -48,4 +57,6 @@ REGISTRATION:
     ACTIVATION:
         TITLE:          'Numeripic - activation needed'
         INFO:           '❤ Your account was created, please check your email account to activate ❤'
+
+
 
