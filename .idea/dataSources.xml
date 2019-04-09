@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="@localhost" uuid="5245338f-a824-47b2-b5b6-2e6c34b7a6b8">
-      <driver-ref>mysql.8</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
-      <driver-properties>
-        <property name="autoReconnect" value="true" />
-        <property name="zeroDateTimeBehavior" value="CONVERT_TO_NULL" />
-        <property name="tinyInt1isBit" value="false" />
-        <property name="characterEncoding" value="utf8" />
-        <property name="characterSetResults" value="utf8" />
-        <property name="yearIsDateType" value="false" />
-      </driver-properties>
-    </data-source>
-    <data-source source="LOCAL" name="@localhost [2]" uuid="9deb0b7e-ddda-4ff9-95a3-effdbe8663b5">
+    <data-source source="LOCAL" name="@localhost" uuid="81cc662b-86f5-4990-9938-5e26f842a3a4">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>

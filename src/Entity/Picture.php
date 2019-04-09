@@ -16,7 +16,7 @@ class Picture
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue(strategy="UUID")
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="guid")
      */
     private $id;
 
@@ -68,6 +68,11 @@ class Picture
      */
     private $tags;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $mimeType;
+
     public function __construct()
     {
         $this->lovers = new ArrayCollection();
@@ -75,7 +80,7 @@ class Picture
         $this->createdAt = new \DateTime();
     }
 
-    public function getId(): ?int
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -212,6 +217,18 @@ class Picture
         if ($this->tags->contains($tag)) {
             $this->tags->removeElement($tag);
         }
+
+        return $this;
+    }
+
+    public function getMimeType(): ?string
+    {
+        return $this->mimeType;
+    }
+
+    public function setMimeType(string $mimeType): self
+    {
+        $this->mimeType = $mimeType;
 
         return $this;
     }

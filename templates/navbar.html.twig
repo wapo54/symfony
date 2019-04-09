@@ -20,9 +20,6 @@
         </a>
 
     </li>
-    <li>Portfolio</li>
-    <li>About me</li>
-    <li>Contact</li>
     <li> {% if app.request.attributes.get('_route') == 'terms_of_services' %}
     active
             {% endif %}
@@ -31,10 +28,19 @@
         </a>
 
     </li>
-        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <li>>
-                {{ 'NAV.LOGGED_AS'|trans({'%name%': app.user.username}) }}
-        </li>
+    <li> {% if app.request.attributes.get('_route') == 'add_picture' %}
+            active
+        {% endif %}
+        <a href="{{ path('add_picture') }}">
+            {{ 'NAV.ADD_PICTURE'|trans }}
+        </a>
+
+    </li>
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <li>>
+            {{ 'NAV.LOGGED_AS'|trans({'%name%': app.user.username}) }}
+    </li>
     <li>>
         <a href="{{ path('app_logout') }}">
             {{ 'NAV.LOGOUT'|trans }}

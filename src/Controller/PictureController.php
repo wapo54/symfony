@@ -44,11 +44,12 @@ class PictureController extends AbstractController
                 //resize the biggest dimension to 1000px
                 //resize the other dimension based on the ratio
             //rename the image
-            $fileName = Uuid::uuid4()->toString() .'.'. $file->getExtension() ;
+            $fileName = Uuid::uuid4()->toString() .'.moe';
             //save the image
-            $file->move($this->getParameter('upload_directory'), $fileName);
             $picture->setPath($fileName);
             $picture->setSharer($this->getUser());
+            $picture->setMimeType($file->getMimeType());
+            $file->move($this->getParameter('upload_directory'), $fileName);
 
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($picture);
@@ -71,6 +72,21 @@ class PictureController extends AbstractController
                 'Picture/addForm.html.twig',
                 ['form' => $form->createView()]
             )
+        );
+    }
+
+    /**
+     * @Route("/picture/{picture}", name= "get_picture_content")
+     */
+    public function gimmePic(Picture $picture){
+        $path = $this->getParameter('upload_directory') . $picture->getPath();
+
+        return new Response(
+            file_get_contents($path),
+            200,
+            [
+                'Content-Type' => $picture->getMimeType()
+            ]
         );
     }
 }

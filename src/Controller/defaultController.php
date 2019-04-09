@@ -8,6 +8,7 @@
 
 namespace App\Controller;
 
+use App\Repository\PictureRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Twig\Environment;
@@ -22,14 +23,19 @@ class defaultController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function homepageAction(Environment $twig)
-    {
+    public function homepageAction(
+        Environment $twig,
+        PictureRepository $repository
+    ) {
         $color = 'purple';
-        return new Response ($twig->render('Default/homepage.html.twig',
+        return new Response (
+            $twig->render(
+                'Default/homepage.html.twig',
         [
             'color' => $color,
             'itemList' => [1,2,58,8,7,654,24],
-            'currentDate' => new \Datetime()
+            'currentDate' => new \Datetime(),
+            'pictures' => $repository->findAll()
             ]
         ));
 

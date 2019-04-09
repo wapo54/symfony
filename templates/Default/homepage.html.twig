@@ -16,19 +16,39 @@
 
 {{ currentDate|date ('Y-m-d H:i:s') |upper|raw }}
 
-<ul>
-{% for item in itemList %}
-    {% if item is odd %}
-        <li> {{ item }}</li>
-    {% endif %}
+    <div class="row mt-2">
+    {% for picture in pictures %}
+       <div class="card col-4 mx-2 d-flex">
+           <img src="{{ path('get_picture_content', {'picture': picture.getId()}) }}"
+           class="card-img-top"
+           alt="{{ picture.getTitle() }}"
+       >
+       <div class="card-body">
+            <h5 class="card-title">{{ picture.getTitle() }}</h5>
+            <p class="card-text">{{ picture.getDescription() }}</p>
+            <p class="card-text"><small class="text-muted"> {{ picture.getSharer().getUsername() }}</small></p>
+            <p>
+                {% for tag in picture.getTags() %}
+                    <span class="badge badge-danger">{{ tag.getLabel() }} </span>
+                {% endfor %}
+            </p>
+        </div>
+   </div>
 {% endfor %}
-</ul>
-
-{% for i in range (0, 10) %}
-    {% if loop.last %}
-        <br/>
+    </div>
+    <ul>
+    {% for item in itemList %}
+        {% if item is odd %}
+            <li> {{ item }}</li>
         {% endif %}
-    {{ i }}
-{% endfor %}
+    {% endfor %}
+    </ul>
+
+    {% for i in range (0, 10) %}
+        {% if loop.last %}
+            <br/>
+            {% endif %}
+        {{ i }}
+    {% endfor %}
 
 {% endblock %}
