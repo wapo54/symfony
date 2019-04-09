@@ -9,6 +9,7 @@ parameters:
     register_mail_sender:            'noreply-numeripic@gmail.com'
     register_mail_txt_template:     'Registration/txt-registration-mail.html.twig'
     register_mail_html_template:    'Registration/html-registration-mail.html.twig'
+    upload_directory:               '%kernel.root_dir%/../var/uploads/'
 
 services:
     # default configuration for services in *this* file

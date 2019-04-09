@@ -28,17 +28,17 @@ FORM:
             LABEL:        'Password'
         USERNAME:
             LABEL:        'Username'
-        SUBMIT:
-            LABEL:        'Submit'
     PICTURE:
-        TITLE:          'Title'
-            LABEL:
+        TITLE:
+             LABEL:      'Title'
         DESCRIPTION:
             LABEL:      'Describe [optional]'
-         TAGS:
+        TAGS:
             LABEL:      'Tags'
         FILE:
             LABEL:      'Choose a picture'
+        SUBMIT:
+            LABEL:        'Submit'
 
 MAIL:
     REGISTER:
