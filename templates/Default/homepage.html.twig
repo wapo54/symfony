@@ -18,7 +18,7 @@
 
     <div class="row mt-2">
     {% for picture in pictures %}
-       <div class="card col-4 mx-2 d-flex">
+       <div class="card col-4 mx-2">
            <img src="{{ path('get_picture_content', {'picture': picture.getId()}) }}"
            class="card-img-top"
            alt="{{ picture.getTitle() }}"
@@ -35,6 +35,13 @@
         </div>
    </div>
 {% endfor %}
+    </div>
+    {# display navigation #}
+    <div class="count my-4">
+        {{ 'HOME.ITEM_COUNT'|trans }}{{ pictures.getTotalItemCount }}
+    </div>
+    <div class="navigation">
+        {{ knp_pagination_render(pictures) }}
     </div>
     <ul>
     {% for item in itemList %}

@@ -9,11 +9,14 @@
 namespace App\Controller;
 
 use App\Repository\PictureRepository;
+use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Twig\Environment;
 
-class defaultController
+class defaultController extends AbstractController
 {
     /**
      * @Route ("/", name="homepage")
@@ -24,8 +27,10 @@ class defaultController
      * @throws \Twig\Error\SyntaxError
      */
     public function homepageAction(
+        Request $request,
         Environment $twig,
-        PictureRepository $repository
+        PictureRepository $repository,
+        PaginatorInterface $paginator
     ) {
         $color = 'purple';
         return new Response (
@@ -35,8 +40,10 @@ class defaultController
             'color' => $color,
             'itemList' => [1,2,58,8,7,654,24],
             'currentDate' => new \Datetime(),
-            'pictures' => $repository->findAll()
-            ]
+            'pictures' => $repository->findPaginated(
+            $request,
+            $paginator
+            )]
         ));
 
     }

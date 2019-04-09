@@ -4,9 +4,9 @@ namespace App\Repository;
 
 use App\Entity\Picture;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use http\Client\Request;
-use Knp\Component\Pager\Pagination\PaginationInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @method Picture|null find($id, $lockMode = null, $lockVersion = null)
@@ -21,10 +21,10 @@ class PictureRepository extends ServiceEntityRepository
         parent::__construct($registry, Picture::class);
     }
 
-    public function findPaginated (Request $request, PaginationInterface $paginator)
+    public function findPaginated (Request $request, PaginatorInterface $paginator)
     {
         $queryBuilder = $this->createQueryBuilder('p');
-        return $paginator->paginate(
+        return $pagination = $paginator->paginate(
             $queryBuilder->getQuery(),
             $request->query->getInt('page', 1),
             10
